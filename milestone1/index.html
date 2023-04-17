@@ -225,7 +225,7 @@
 
             <ul>
               
-              <li v-for="emoji in emojis">{{emoji}}</li>
+              <li v-for="emoji in emojis" @click="addEmoji(emoji)">{{emoji}}</li>
 
             </ul>
 
@@ -235,7 +235,7 @@
 
         <div class="text-area">
 
-          <input type="text" placeholder="Scrivi un messaggio">
+          <input type="text" placeholder="Scrivi un messaggio" v-model="messageText">
 
         </div>
 
