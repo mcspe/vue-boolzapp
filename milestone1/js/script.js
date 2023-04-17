@@ -6,7 +6,8 @@ createApp({
   data(){
     return {
       isInputActive: false,
-      contacts
+      contacts,
+      isMouseHover: false
     }
   },
   methods:{

@@ -187,4 +187,64 @@
     main .chat-box{
       height: 100%;
     }
+
+    .chat-box .messages-section{
+      height: calc(100% - 6rem);
+      background: url(../../img/mine.jpg);
+      background-size: cover;
+      overflow-y: scroll;
+      padding: 1rem;
+    }
+
+    .messages-section .message#anchor{
+      overflow-anchor: auto;
+    }
+
+    .messages-section .message p{
+      display: inline-block;
+      position: relative;
+      padding: .5rem 2rem .5rem .8rem;
+      min-width: 25%;
+      max-width: 65%;
+      border-radius: .5rem;
+      margin: .5rem 0;
+    }
+
+    .messages-section .message p span.time{
+      position: absolute;
+      bottom: .2rem;
+      right: .2rem;
+    }
+
+    .messages-section .message p span.chevron{
+      position: absolute;
+      cursor: pointer;
+      top: 50%;
+      transform: translateY(-50%);
+      right: .5rem;
+    }
+
+    .messages-section .message.received p{
+      background: white;
+    }
+
+    .messages-section .message.sent p{
+      background: #D5F9BA;
+      float: right;
+    }
+
+    .clearfix::after{
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .message-input-area{
+      background: #EAEAEA;
+      height: 3rem;
+      padding: .3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   /* /CHAT-BOX */
