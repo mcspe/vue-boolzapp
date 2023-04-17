@@ -19,16 +19,21 @@
   <title>VUE BOOLZAPP</title>
 </head>
 <body>
+
   <main class="wrapper" id="app">
 
+    <!-- LEFT NAV -->
     <section class="left-nav">
 
+      <!-- USER BAR -->
       <div class="user-bar">
 
         <div class="user-info">
 
           <div class="user-pic">
+
             <img src="../img/avatar_io.jpg" alt="">
+
           </div>
 
           <span class="user-tag">Marco</span>
@@ -36,36 +41,53 @@
         </div>
 
         <div class="icon">
+
           <i class="fa-solid fa-circle-notch"></i>
+
           <i class="fa-solid fa-message"></i>
+
           <i class="fa-solid fa-ellipsis-vertical"></i>
+
         </div>
 
       </div>
+      <!-- /USER BAR -->
 
+      <!-- NOTIFICATIONS BAR -->
       <div class="notifications">
 
         <div class="logo">
+
           <i class="fa-solid fa-bell-slash"></i>
+
         </div>
 
         <div class="text">
+
           <p>Ricevi notifiche di nuovi messaggi</p>
+
           <a href="#" class="smaller">Attiva notifiche desktop</a>
+
         </div>
 
       </div>
+      <!-- /NOTIFICATIONS BAR -->
 
+      <!-- SEARCH BAR -->
       <div class="search-bar">
 
         <div class="logo" :class="{'active': isInputActive}">
+
           <i class="fa-solid fa-magnifying-glass"></i>
+
         </div>
 
         <input type="text" placeholder="Cerca o inizia una nuova chat" @focus="isInputActive = true" @blur="isInputActive = false">
 
       </div>
+      <!-- /SEARCH BAR -->
 
+      <!-- CHATS LIST -->
       <ul class="chats-list">
 
         <li v-for="(contact, i) in contacts" class="contact-chat">
@@ -89,12 +111,50 @@
         </li>
 
       </ul>
-
+      <!-- /CHATS LIST -->
+      
     </section>
-
+    <!-- /LEFT NAV -->
+    
+    <!-- RIGHT CHAT SECTION -->
     <section class="chat-box">
-      <div class="user-bar"></div>
+      
+      <!-- ACTIVE CONTACT INFO -->
+      <div class="user-bar">
+
+        <div class="user-info">
+
+          <div class="user-pic">
+
+            <img src="../img/avatar_1.jpg" alt="">
+
+          </div>
+
+          <div class="user-tag">
+
+            <span class="user-name">Michele</span>
+            
+            <span class="smaller">Ultimo accesso oggi alle 12.00</span>
+
+          </div>
+
+        </div>
+
+        <div class="icon">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <i class="fa-solid fa-paperclip"></i>
+
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+
+        </div>
+
+      </div>
+      <!-- /ACTIVE CONTACT INFO -->
+      
     </section>
+    <!-- /RIGHT CHAT SECTION -->
 
   </main>
 

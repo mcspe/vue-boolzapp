@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none; 
   }
 
 /* GENERALI */
@@ -55,13 +56,17 @@
 
   .user-tag{
     display: inline-block;
-    margin: 0 .3rem;
+    margin: 0 .5rem;
+  }
+
+  .user-tag span{
+    display: block;
   }
     
   .icon i{
     color: #B1B1B1;
     font-size: 1rem;
-    margin: 0 .3rem;
+    margin: 0 .5rem;
     cursor: pointer;
   }
 
@@ -144,9 +149,14 @@
     }
 
     .chats-list .contact-chat{
+      cursor: pointer;
       height: 4rem;
       border-top: 1px solid #D6D6D6;
       padding: .5rem;
+    }
+
+    .chats-list .contact-chat.active{
+      background: #E9EBEB;
     }
 
     .chats-list .contact-chat:first-child{
