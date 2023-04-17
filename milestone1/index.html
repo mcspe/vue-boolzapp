@@ -58,11 +58,11 @@
 
       <div class="search-bar">
 
-        <div class="logo">
+        <div class="logo" :class="{'active': isInputActive}">
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
 
-        <input type="text" placeholder="Cerca o inizia una nuova chat">
+        <input type="text" placeholder="Cerca o inizia una nuova chat" @focus="isInputActive = true" @blur="isInputActive = false">
 
       </div>
 
