@@ -1,0 +1,37 @@
+/* RESET */
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+/* GENERALI */
+  body{
+    background: rgb(0,150,136);
+    background: linear-gradient(rgb(0,150,136) 20%, rgb(218,219,211) 20%);
+  }
+
+/* MAIN */
+  .wrapper{
+    width: 80%;
+    max-width: 1000px;
+    height: 80vh;
+    margin: 10vh auto;
+    background-color: white; /* debug purpose */
+  }
+
+  /* LEFT NAV */
+    main .left-nav{
+      width: 35%;
+      float: left;
+      height: 100%;
+      background-color: grey; /* debug purpose */
+    }
+    /* /LEFT NAV */
+    
+    /* CHATS */
+    main .chats{
+      height: 100%;
+      background-color: blue; /* debug purpose */
+    }
+    /* /CHATS */
