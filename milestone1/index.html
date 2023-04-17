@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- FAVICON -->
   <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+  <!-- GOOGLE FONT  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!-- FONTAWESOME -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'/>
   <!-- CUSTOM CSS -->
@@ -14,11 +18,61 @@
 </head>
 <body>
   <main class="wrapper" id="app">
-    <section class="left-nav"></section>
-    <section class="chats">
-      
+
+    <section class="left-nav">
+
+      <div class="user-bar">
+
+        <div class="user-info">
+
+          <div class="user-pic">
+            <img src="../img/avatar_io.jpg" alt="">
+          </div>
+
+          <span class="user-tag">Marco</span>
+
+        </div>
+
+        <div class="icon">
+          <i class="fa-solid fa-circle-notch"></i>
+          <i class="fa-solid fa-message"></i>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+
+      </div>
+
+      <div class="notifications">
+
+        <div class="logo">
+          <i class="fa-solid fa-bell-slash"></i>
+        </div>
+
+        <div class="text">
+          <p>Ricevi notifiche di nuovi messaggi</p>
+          <a href="#" class="smaller">Attiva notifiche desktop</a>
+        </div>
+
+      </div>
+
+      <div class="search-bar">
+
+        <div class="logo" :class="">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <input type="text" placeholder="Cerca o inizia una nuova chat">
+
+      </div>
+
     </section>
+
+    <section class="chats">
+      <div class="user-bar"></div>
+    </section>
+
   </main>
+
   <script type="module" src="./js/script.js"></script>
+
 </body>
 </html>

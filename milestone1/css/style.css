@@ -9,15 +9,66 @@
   body{
     background: rgb(0,150,136);
     background: linear-gradient(rgb(0,150,136) 20%, rgb(218,219,211) 20%);
+    font-family: 'Roboto', sans-serif;
+    font-size: .8rem;
+  }
+
+  .smaller{
+    font-size: .7rem;
+    color: #B1B1B1;
+  }
+
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
 /* MAIN */
   .wrapper{
     width: 80%;
     max-width: 1000px;
-    height: 80vh;
-    margin: 10vh auto;
+    height: 92vh;
+    margin: 4vh auto;
     background-color: white; /* debug purpose */
+  }
+  
+  .user-bar{
+    background: #EAEAEA;
+    height: 3rem;
+    padding: .3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .user-info{
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .user-pic{
+    display: inline-block;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .user-tag{
+    display: inline-block;
+    margin: 0 .3rem;
+  }
+    
+  .icon i{
+    color: #B1B1B1;
+    font-size: 1rem;
+    margin: 0 .3rem;
+    cursor: pointer;
+  }
+
+  .icon i:hover{
+    color: gray;
   }
 
   /* LEFT NAV */
@@ -25,13 +76,71 @@
       width: 35%;
       float: left;
       height: 100%;
-      background-color: grey; /* debug purpose */
+      border-right: 1px solid #D6D6D6;
     }
-    /* /LEFT NAV */
+
+    .left-nav .notifications{
+      background: #8EDAFC;
+      height: 3.5rem;
+      padding: .5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .notifications .logo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 .5rem;
+      font-size: 1rem;
+      color: #8EDAFC;
+      background: white;
+      padding: .5rem;
+      border-radius: 50%;
+    }
+
+    .left-nav .search-bar{
+      background: #FAFAFA;
+      height: 2rem;
+      padding: .3rem;
+      display: flex;
+    }
+
+    .search-bar .logo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1rem;
+      border-radius: .2rem 0 0 .2rem;
+      background: white;
+      color: #B1B1B1;
+    }
+
+    .search-bar .logo.active{
+      background: #B1B1B1;
+      color: gray;
+    }
+
+    .search-bar input{
+      width: 100%;
+      padding-left: .5rem;
+      border: none;
+      border-left: 2px solid #FAFAFA;
+      border-radius: 0 .2rem .2rem 0;
+    }
+
+    .search-bar input:focus{
+      outline: none;
+    }
+
+    .search-bar input::placeholder{
+      color: #B1B1B1;
+      font-size: .8rem;
+    }
+  /* /LEFT NAV */
     
-    /* CHATS */
+  /* CHATS */
     main .chats{
       height: 100%;
-      background-color: blue; /* debug purpose */
     }
-    /* /CHATS */
+  /* /CHATS */
