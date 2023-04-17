@@ -1,4 +1,4 @@
-import {contacts} from './db.js';
+import {contacts, emojis} from './db.js';
 
 const {createApp} = Vue;
 
@@ -7,7 +7,9 @@ createApp({
     return {
       isInputActive: false,
       contacts,
-      isMouseHover: false
+      isMouseHover: false,
+      emojis,
+      emojiClicked: false
     }
   },
   methods:{
