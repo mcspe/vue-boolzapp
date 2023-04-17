@@ -30,7 +30,6 @@
     max-width: 1000px;
     height: 92vh;
     margin: 4vh auto;
-    background-color: white; /* debug purpose */
   }
   
   .user-bar{
@@ -49,7 +48,6 @@
   }
 
   .user-pic{
-    display: inline-block;
     height: 100%;
     border-radius: 50%;
     overflow: hidden;
@@ -137,10 +135,46 @@
       color: #B1B1B1;
       font-size: .8rem;
     }
+
+    .left-nav .chats-list{
+      background: white;
+      height: calc(100% - 8.5rem);
+      overflow-y: scroll;
+      list-style: none;
+    }
+
+    .chats-list .contact-chat{
+      height: 4rem;
+      border-top: 1px solid #D6D6D6;
+      padding: .5rem;
+    }
+
+    .chats-list .contact-chat:first-child{
+      border: none;
+    }
+
+    .chats-list .contact-chat .user-pic{
+      float: left;
+    }
+
+    .chats-list .contact-chat .contact-info{
+      margin-left: 3.8rem;
+      position: relative;
+    }
+
+    .chats-list .contact-chat .contact-info span{
+      display: block;
+    }
+
+    .chats-list .contact-chat .contact-info .time{
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   /* /LEFT NAV */
     
-  /* CHATS */
-    main .chats{
+  /* CHAT-BOX */
+    main .chat-box{
       height: 100%;
     }
-  /* /CHATS */
+  /* /CHAT-BOX */
