@@ -232,18 +232,20 @@
         background: url(../../img/mine.jpg);
         background-size: cover;
         overflow-y: scroll;
+        /* overscroll-behavior-y: contain; */
+        /* scroll-snap-type: y proximity; */
         padding: 1rem;
         list-style: none;
       }
 
       .messages-section #anchor{
-        overflow-anchor: auto;
+        /* scroll-snap-align: end; */
       }
 
       .messages-section .message p{
         display: inline-block;
         position: relative;
-        padding: .5rem 2rem .5rem .8rem;
+        padding: .5rem 2.5rem .5rem .8rem;
         min-width: 25%;
         max-width: 65%;
         border-radius: .5rem;

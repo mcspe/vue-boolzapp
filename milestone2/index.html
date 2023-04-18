@@ -157,11 +157,11 @@
       <!-- MESSAGES SECTION -->
       <ul class="messages-section">
 
-        <li class="message received">
+        <li v-for="(message, i) in contacts[selectedContact].messages" class="message" :class="message.status" :id="[(contacts[selectedContact].messages.length - 1) === i ? 'anchor': '']">
 
           <p>
 
-            Ciao
+            {{message.message}}
 
             <span v-if="!isMouseHover" class="time smaller">12.00</span>
 
@@ -169,46 +169,6 @@
 
           </p>
 
-        </li>
-
-        <li class="message sent">
-          <p>
-            Ciao
-            <span v-if="!isMouseHover" class="time smaller">12.00</span>
-            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
-          </p>
-        </li>
-        
-        <li class="message received">
-          <p>
-            Come stai?
-            <span v-if="!isMouseHover" class="time smaller">12.00</span>
-            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
-          </p>
-        </li>
-        
-        <li class="message sent">
-          <p>
-            Tutto bene tu?
-            <span v-if="!isMouseHover" class="time smaller">12.00</span>
-            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
-          </p>
-        </li>
-        
-        <li class="message received">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus laboriosam dolore amet voluptates autem consequuntur qui, asperiores hic velit voluptas provident eos? Culpa, ducimus ab!
-            <span v-if="!isMouseHover" class="time smaller">12.00</span>
-            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
-          </p>
-        </li>
-                
-        <li class="message sent" id="anchor">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque minima voluptate doloremque veritatis voluptatum quia fuga, quod corporis ducimus! Labore excepturi distinctio quis harum rem aspernatur doloremque, odit inventore corporis corrupti facere, ex vitae quas.
-            <span v-if="!isMouseHover" class="time smaller">12.00</span>
-            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
-          </p>
         </li>
 
       </ul>
