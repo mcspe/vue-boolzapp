@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- FAVICON -->
+  <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+  <!-- GOOGLE FONT  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- FONTAWESOME -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'/>
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- VUE -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
+  <title>VUE BOOLZAPP</title>
+</head>
+<body>
+
+  <main class="wrapper" id="app">
+
+    <!-- LEFT NAV -->
+    <section class="left-nav">
+
+      <!-- USER BAR -->
+      <div class="user-bar">
+
+        <div class="user-info">
+
+          <div class="user-pic">
+
+            <img src="../img/avatar_io.jpg" alt="">
+
+          </div>
+
+          <span class="user-tag">Marco</span>
+
+        </div>
+
+        <div class="icon">
+
+          <i class="fa-solid fa-circle-notch"></i>
+
+          <i class="fa-solid fa-message"></i>
+
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+
+        </div>
+
+      </div>
+      <!-- /USER BAR -->
+
+      <!-- NOTIFICATIONS BAR -->
+      <div class="notifications">
+
+        <div class="logo">
+
+          <i class="fa-solid fa-bell-slash"></i>
+
+        </div>
+
+        <div class="text">
+
+          <p>Ricevi notifiche di nuovi messaggi</p>
+
+          <a href="#" class="smaller">Attiva notifiche desktop</a>
+
+        </div>
+
+      </div>
+      <!-- /NOTIFICATIONS BAR -->
+
+      <!-- SEARCH BAR -->
+      <div class="search-bar">
+
+        <div class="logo" :class="{'active': isInputActive}">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+        </div>
+
+        <input type="text" placeholder="Cerca o inizia una nuova chat" @focus="isInputActive = true" @blur="isInputActive = false">
+
+      </div>
+      <!-- /SEARCH BAR -->
+
+      <!-- CHATS LIST -->
+      <ul class="chats-list">
+
+        <li v-for="(contact, i) in contacts" class="contact-chat" :class="{'active': selectedContact === i}" @click="selectedContact = i">
+
+          <div class="user-pic">
+
+            <img :src="'../img/' + contact.avatar" :alt="contact.name">
+
+          </div>
+
+          <div class="contact-info">
+
+            <span class="contact-name">{{contact.name}}</span>
+
+            <span class="smaller">{{contact.messages[contact.messages.length - 1].message}}</span>
+
+            <span class="time smaller">12.00</span>
+
+          </div>
+          
+        </li>
+
+      </ul>
+      <!-- /CHATS LIST -->
+      
+    </section>
+    <!-- /LEFT NAV -->
+    
+    <!-- RIGHT CHAT SECTION -->
+    <section class="chat-box">
+      
+      <!-- ACTIVE CONTACT INFO -->
+      <div class="user-bar">
+
+        <div class="user-info">
+
+          <div class="user-pic">
+
+            <img :src="'../img/' + contacts[selectedContact].avatar" :alt="contacts[selectedContact].name">
+
+          </div>
+
+          <div class="user-tag">
+
+            <span class="user-name">{{contacts[selectedContact].name}}</span>
+            
+            <span class="smaller">Ultimo accesso oggi alle 12.00</span>
+
+          </div>
+
+        </div>
+
+        <div class="icon">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <i class="fa-solid fa-paperclip"></i>
+
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+
+        </div>
+
+      </div>
+      <!-- /ACTIVE CONTACT INFO -->
+      
+      <!-- MESSAGES SECTION -->
+      <ul class="messages-section">
+
+        <li class="message received">
+
+          <p>
+
+            Ciao
+
+            <span v-if="!isMouseHover" class="time smaller">12.00</span>
+
+            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
+
+          </p>
+
+        </li>
+
+        <li class="message sent">
+          <p>
+            Ciao
+            <span v-if="!isMouseHover" class="time smaller">12.00</span>
+            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
+          </p>
+        </li>
+        
+        <li class="message received">
+          <p>
+            Come stai?
+            <span v-if="!isMouseHover" class="time smaller">12.00</span>
+            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
+          </p>
+        </li>
+        
+        <li class="message sent">
+          <p>
+            Tutto bene tu?
+            <span v-if="!isMouseHover" class="time smaller">12.00</span>
+            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
+          </p>
+        </li>
+        
+        <li class="message received">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus laboriosam dolore amet voluptates autem consequuntur qui, asperiores hic velit voluptas provident eos? Culpa, ducimus ab!
+            <span v-if="!isMouseHover" class="time smaller">12.00</span>
+            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
+          </p>
+        </li>
+                
+        <li class="message sent" id="anchor">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque minima voluptate doloremque veritatis voluptatum quia fuga, quod corporis ducimus! Labore excepturi distinctio quis harum rem aspernatur doloremque, odit inventore corporis corrupti facere, ex vitae quas.
+            <span v-if="!isMouseHover" class="time smaller">12.00</span>
+            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
+          </p>
+        </li>
+
+      </ul>
+      <!-- /MESSAGES SECTION -->
+      
+      <!-- NEW MESSAGE INPUT BAR -->
+      <div class="message-input-area">
+
+        <div class="icon">
+
+          <i @click="emojiClicked = !emojiClicked" class="fa-regular fa-face-smile"></i>
+
+          <div v-if="emojiClicked" class="emoji-container">
+
+            <ul>
+              
+              <li v-for="emoji in emojis" @click="addEmoji(emoji)">{{emoji}}</li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="text-area">
+
+          <input type="text" placeholder="Scrivi un messaggio" v-model="messageText">
+
+        </div>
+
+        <div class="icon">
+
+          <i class="fa-solid fa-microphone"></i>
+
+        </div>
+
+      </div>
+      <!-- /NEW MESSAGE INPUT BAR -->
+      
+    </section>
+    <!-- /RIGHT CHAT SECTION -->
+
+  </main>
+
+  <script type="module" src="./js/script.js"></script>
+
+</body>
+</html>
