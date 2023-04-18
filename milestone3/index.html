@@ -105,7 +105,7 @@
 
             <span class="contact-name">{{contact.name}}</span>
 
-            <span class="smaller">{{contact.messages[contact.messages.length - 1].message}}</span>
+            <span class="smaller">{{messagePreview(contact.messages[contact.messages.length - 1].message)}}</span>
 
             <span class="time smaller">{{messageTime(contact.messages[contact.messages.length - 1])}}</span>
 
@@ -194,7 +194,7 @@
           </div>
 
         </div>
-
+        
         <div class="text-area">
 
           <input type="text" placeholder="Scrivi un messaggio" v-model="messageText" @keyup.enter="newMessage(selectedContact)">

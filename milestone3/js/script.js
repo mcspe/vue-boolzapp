@@ -1,4 +1,4 @@
-import {contacts, emojis} from './db.js';
+import {contacts, emojis, answers} from './db.js';
 
 const {createApp} = Vue;
 const dt = luxon.DateTime;
@@ -12,7 +12,8 @@ createApp({
       isMouseHover: false,
       emojis,
       emojiClicked: false,
-      messageText: ''
+      messageText: '',
+      answers
     }
   },
   methods:{
@@ -20,6 +21,14 @@ createApp({
       this.messageText += emoji;
       const input = document.querySelector('.text-area>input');
       input.focus();
+    },
+    messagePreview(message) {
+      if (message.length > 39) {
+        const newStr = message.substr(0, 39) + '...';
+        return newStr;
+      } else {
+        return message;
+      }
     },
     messageTime(message) {
       return message.date.substr(11, 5);
@@ -33,10 +42,21 @@ createApp({
         }
         this.messageText = '';
         this.contacts[contact].messages.push(newMsgObj);
+        this.getReply(contact);
       }
+    },
+    getReply(contact) {
+      setTimeout(() => {
+        const newMsgObj = {
+          date: dt.now().toFormat('dd/MM/yyyy HH:mm:ss'),
+          message: this.answers[Math.floor(Math.random() * (this.answers.length - 1))],
+          status: 'received'
+        }
+        this.contacts[contact].messages.push(newMsgObj);
+      }, 2000);
     }
   },
   mounted(){
-    console.log(dt.now().toFormat('dd/MM/yyyy HH:mm:ss'));
+    console.log(this.contacts[0].messages[0].message.length);
   }
 }).mount('#app');
