@@ -14,6 +14,8 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'/>
   <!-- CUSTOM CSS -->
   <link rel="stylesheet" href="./css/style.css">
+  <!-- LUXON -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/luxon/3.3.0/luxon.min.js' integrity='sha512-KKbQg5o92MwtJKR9sfm/HkREzfyzNMiKPIQ7i7SZOxwEdiNCm4Svayn2DBq7MKEdrqPJUOSIpy1v6PpFlCQ0YA==' crossorigin='anonymous'></script>
   <!-- VUE -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   
@@ -105,7 +107,7 @@
 
             <span class="smaller">{{contact.messages[contact.messages.length - 1].message}}</span>
 
-            <span class="time smaller">12.00</span>
+            <span class="time smaller">{{messageTime(contact.messages[contact.messages.length - 1])}}</span>
 
           </div>
           
@@ -163,7 +165,7 @@
 
             {{message.message}}
 
-            <span v-if="!isMouseHover" class="time smaller">12.00</span>
+            <span v-if="!isMouseHover" class="time smaller">{{messageTime(message)}}</span>
 
             <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
 

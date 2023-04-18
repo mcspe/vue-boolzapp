@@ -238,9 +238,9 @@
         list-style: none;
       }
 
-      .messages-section #anchor{
-        /* scroll-snap-align: end; */
-      }
+      /* .messages-section #anchor{
+        scroll-snap-align: end;
+      } */
 
       .messages-section .message p{
         display: inline-block;
