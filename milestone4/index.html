@@ -177,10 +177,11 @@
           class="message" 
           :class="[(contacts[selectedContact].messages.length - 1) === i ? 'anchor': '',], message.status" 
           :id="i"
+          >
+
+          <p
           @mouseenter="isMouseHover = true, isMessageID = i"
           @mouseleave="isMouseHover = false, isMessageID = null">
-
-          <p>
 
             {{message.message}}
 
