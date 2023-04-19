@@ -181,24 +181,30 @@
           :id="i"
           >
 
-          <p
+          <div
           @mouseenter="isMouseHover = true, isMessageID = i"
           @mouseleave="isMouseHover = false, isMessageID = null">
 
-            {{message.message}}
+            <p>{{message.message}}</p>
 
             <span 
               v-if="!isMouseHover || isMessageID != i" 
               class="time smaller">{{messageTime(message)}}</span>
 
-            <span v-else-if="isMessageID === i" class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
+            <span 
+              v-else-if="isMessageID === i"
+              @click="chevronClicked = !chevronClicked" 
+              class="chevron smaller">
+              <i class="fa-solid fa-chevron-down"></i></span>
             
-            <ul class="dropdown">
+            <ul 
+              v-show="isMessageID === i && chevronClicked"
+              class="dropdown">
               <li>Info Messaggio</li>
               <li>Cancella Messaggio</li>
             </ul>
 
-          </p>
+          </div>
           
 
         </li>

@@ -12,6 +12,7 @@ createApp({
       selectedContact: 0,
       isMouseHover: false,
       isMessageID: null,
+      chevronClicked: false,
       emojis,
       emojiClicked: false,
       messageText: '',

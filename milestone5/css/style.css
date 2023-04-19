@@ -1,0 +1,402 @@
+/* RESET */
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; 
+  }
+
+/* GENERALI */
+  body{
+    background: rgb(0,150,136);
+    background: linear-gradient(rgb(0,150,136) 20%, rgb(218,219,211) 20%);
+    font-family: 'Roboto', sans-serif;
+    font-size: .8rem;
+  }
+
+  .smaller{
+    font-size: .7rem;
+    color: #B1B1B1;
+  }
+
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* SCROLL BAR */
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #F5F5F5; 
+      border-radius: 5px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #C7C7C7; 
+      border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.6); 
+    }
+  /* /SCROLL BAR */
+
+/* MAIN */
+  .wrapper{
+    width: 80%;
+    max-width: 1000px;
+    height: 92vh;
+    margin: 4vh auto;
+  }
+  
+  .user-bar{
+    background: #EAEAEA;
+    height: 3rem;
+    padding: .3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .user-info{
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .user-pic{
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .user-tag{
+    display: inline-block;
+    margin: 0 .5rem;
+  }
+
+  .user-tag span{
+    display: block;
+  }
+    
+  .icon i{
+    color: #B1B1B1;
+    font-size: 1rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+  }
+
+  .icon i:hover{
+    color: gray;
+  }
+
+  /* LEFT NAV */
+    main .left-nav{
+      width: 35%;
+      float: left;
+      height: 100%;
+      border-right: 1px solid #D6D6D6;
+    }
+
+    /* NOTIFICATIONS BAR */
+      .left-nav .notifications{
+        background: #8EDAFC;
+        height: 3.5rem;
+        padding: .5rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .notifications .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 .5rem;
+        font-size: 1rem;
+        color: #8EDAFC;
+        background: white;
+        padding: .5rem;
+        border-radius: 50%;
+      }
+    /* /NOTIFICATIONS BAR */
+
+    /* SEARCH BAR */
+      .left-nav .search-bar{
+        background: #FAFAFA;
+        height: 2rem;
+        padding: .3rem;
+        display: flex;
+      }
+
+      .search-bar .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+        border-radius: .2rem 0 0 .2rem;
+        background: white;
+        color: #B1B1B1;
+      }
+
+      .search-bar .logo.active{
+        background: #B1B1B1;
+        color: gray;
+        border: 1px solid gray;
+        border-right: none;
+      }
+
+      .search-bar input{
+        width: 100%;
+        padding-left: .5rem;
+        border: none;
+        border-left: 2px solid #FAFAFA;
+        border-radius: 0 .2rem .2rem 0;
+      }
+
+      .search-bar input:focus{
+        outline: none;
+        border: 1px solid gray;
+        border-left: none;
+      }
+
+      .search-bar input::placeholder{
+        color: gray;
+        font-size: .8rem;
+      }
+    /* /SEARCH BAR */
+
+    /* CHATS LIST */
+      .left-nav .chats-list{
+        background: white;
+        height: calc(100% - 8.5rem);
+        overflow-y: scroll;
+        list-style: none;
+      }
+
+      .chats-list .contact-chat{
+        cursor: pointer;
+        height: 4rem;
+        border-top: 1px solid #D6D6D6;
+        padding: .5rem;
+      }
+
+      .chats-list .contact-chat:hover{
+        background: #E9EBEB;
+      }
+
+      .chats-list .contact-chat.active{
+        background: #E9EBEB;
+      }
+
+      .chats-list .contact-chat:first-child{
+        border: none;
+      }
+
+      .chats-list .contact-chat .user-pic{
+        float: left;
+      }
+
+      .chats-list .contact-chat .contact-info{
+        margin-left: 3.8rem;
+        position: relative;
+      }
+
+      .chats-list .contact-chat .contact-info span{
+        display: block;
+      }
+
+      .chats-list .contact-chat .contact-info .time{
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    /* /CHATS LIST */
+  /* /LEFT NAV */
+    
+  /* CHAT-BOX */
+    main .chat-box{
+      height: 100%;
+    }
+
+    /* MESSAGES SECTION */
+      .chat-box .messages-section{
+        height: calc(100% - 6rem);
+        background: url(../../img/mine.jpg);
+        background-size: cover;
+        overflow-y: scroll;
+        overscroll-behavior-y: contain; 
+        scroll-snap-type: y proximity;
+        padding: 1rem;
+        list-style: none;
+      }
+
+      .messages-section .anchor{
+        scroll-snap-align: end;
+      } 
+
+      .messages-section .message div{
+        display: inline-block;
+        position: relative;
+        padding: .5rem 2.5rem .5rem .8rem;
+        min-width: 25%;
+        max-width: 65%;
+        border-radius: .5rem;
+        margin: .5rem 0;
+      }
+
+      .messages-section .message div span.time{
+        position: absolute;
+        bottom: .2rem;
+        right: .2rem;
+      }
+
+      .messages-section .message div span.chevron{
+        position: absolute;
+        cursor: pointer;
+        top: 50%;
+        transform: translateY(-50%);
+        right: .5rem;
+      }
+
+      .messages-section .message div .dropdown{
+        /* display: none; */
+        position: absolute;
+        bottom: 0;
+        right: .2rem;
+        transform: translate(0, 100%);
+        z-index: 10;
+        list-style: none;
+        background: white;
+        padding: 1rem;
+      }
+
+      .messages-section .message div .dropdown.active{
+        display: inline-block;
+      }
+
+      .messages-section .message div .dropdown li{
+        cursor: pointer;
+        padding: .5rem;
+        margin: .5rem 0;
+        font-size: .7rem;
+      }
+
+      .messages-section .message div .dropdown li:hover{
+        background: #E9EBEB;
+      }
+
+      .messages-section .message.received div{
+        background: white;
+      }
+
+      .messages-section .message.received div::before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: .1rem;
+        left: -.4rem;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 6px 8px 6px;
+        border-color: transparent transparent white transparent;
+        -webkit-transform: rotate(37deg);
+        -ms-transform: rotate(37deg);
+        transform: rotate(37deg);
+      }
+      
+      .messages-section .message.sent div{
+        background: #D5F9BA;
+        float: right;
+      }
+
+      .messages-section .message.sent div::before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: .1rem;
+        right: -.4rem;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 6px 8px 6px;
+        border-color: transparent transparent #D5F9BA transparent;
+        -webkit-transform: rotate(-37deg);
+        -ms-transform: rotate(-37deg);
+        transform: rotate(-37deg);
+      }
+
+      .messages-section .message.sent::after{
+        content: '';
+        display: table;
+        clear: both;
+      }
+    /* /MESSAGES SECTION */
+
+    /* NEW MESSAGE INPUT BAR */
+      .message-input-area{
+        background: #EAEAEA;
+        height: 3rem;
+        padding: .3rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .message-input-area .icon{
+        position: relative;
+        margin: 0 1rem;
+      }
+
+      .message-input-area .icon .emoji-container{
+        position: absolute;
+        height: 12rem;
+        width: 16rem;
+        border-radius: .2rem;
+        background: rgba(255, 255, 255, .8);
+        top: -12.5rem;
+        overflow-y: auto;
+      }
+
+      .message-input-area .icon .emoji-container ul{
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .message-input-area .icon .emoji-container li{
+        cursor: pointer;
+        list-style: none;
+        font-size: 1rem;
+        margin: .3rem;
+      }
+
+      .message-input-area .text-area{
+        width: 100%;
+      }
+
+      .message-input-area .text-area input{
+        width: 100%;
+        height: 2rem;
+        border: none;
+        padding-left: .5rem;
+        border-radius: .2rem;
+      }
+
+      .message-input-area .text-area input:focus{
+        outline: none;
+        border: 1px solid gray;
+      }
+
+      .message-input-area .text-area input::placeholder{
+        color: gray;
+        font-size: .8rem;
+      }
+    /* /NEW MESSAGE INPUT BAR */
+  /* /CHAT-BOX */
