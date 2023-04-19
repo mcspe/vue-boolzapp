@@ -175,18 +175,20 @@
         <li 
           v-for="(message, i) in contacts[selectedContact].messages" 
           class="message" 
-          :class="message.status" 
-          :id="[(contacts[selectedContact].messages.length - 1) === i ? 'anchor': '']">
+          :class="[(contacts[selectedContact].messages.length - 1) === i ? 'anchor': '',], message.status" 
+          :id="i"
+          @mouseenter="isMouseHover = true, isMessageID = i"
+          @mouseleave="isMouseHover = false, isMessageID = null">
 
           <p>
 
             {{message.message}}
 
             <span 
-              v-if="!isMouseHover" 
+              v-if="!isMouseHover || isMessageID != i" 
               class="time smaller">{{messageTime(message)}}</span>
 
-            <span v-else class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
+            <span v-else-if="isMessageID === i" class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
 
           </p>
 
