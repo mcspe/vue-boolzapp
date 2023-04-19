@@ -56,16 +56,11 @@ createApp({
         }
         this.contacts[contact].messages.push(newMsgObj);
       }, 2000);
-    }
-  },
-  computed: {
-    displayedContacts(){
+    },
+    displayContacts(){
       this.contacts.forEach(contact => {
         contact.visible = contact.name.toLowerCase().includes(this.searchBar.toLowerCase()); 
       });
-      const contactsList = this.contacts.filter(contact => contact.visible);
-      console.log(contactsList);
-      return contactsList;
     }
   },
   mounted(){

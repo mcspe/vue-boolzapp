@@ -90,6 +90,7 @@
           placeholder="Cerca o inizia una nuova chat" 
           @focus="isInputActive = true" 
           @blur="isInputActive = false"
+          @keyup="displayContacts"
           v-model="searchBar">
 
       </div>
@@ -99,10 +100,11 @@
       <ul class="chats-list">
 
         <li 
-          v-for="(contact, i) in displayedContacts" 
+          v-for="(contact, i) in contacts" 
           class="contact-chat" 
           :class="{'active': selectedContact === i}" 
-          @click="selectedContact = i">
+          @click="selectedContact = i"
+          v-show="contact.visible">
 
           <div class="user-pic">
 
@@ -114,7 +116,7 @@
 
           <div class="contact-info">
 
-            <span class="contact-name">{{contact.name}}</span>
+            <span class="contact-name">{{contact.name}} {{i}}</span>
 
             <span class="smaller">{{messagePreview(contact.messages[contact.messages.length - 1].message)}}</span>
 
@@ -190,8 +192,14 @@
               class="time smaller">{{messageTime(message)}}</span>
 
             <span v-else-if="isMessageID === i" class="chevron smaller"><i class="fa-solid fa-chevron-down"></i></span>
+            
+            <ul class="dropdown">
+              <li>Info Messaggio</li>
+              <li>Cancella Messaggio</li>
+            </ul>
 
           </p>
+          
 
         </li>
 

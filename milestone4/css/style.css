@@ -266,6 +266,16 @@
         right: .5rem;
       }
 
+      .messages-section .message p .dropdown{
+        display: inline-block;
+        position: absolute;
+        bottom: .2rem;
+        right: .2rem;
+        list-style: none;
+        background: white;
+        padding: 1rem;
+      }
+
       .messages-section .message.received p{
         background: white;
       }
