@@ -118,9 +118,9 @@
 
             <span class="contact-name">{{contact.name}}</span>
 
-            <span class="smaller">{{messagePreview(contact.messages[contact.messages.length - 1].message)}}</span>
+            <span class="smaller">{{messagePreview(contact.messages)}}</span>
 
-            <span class="time smaller">{{messageTime(contact.messages[contact.messages.length - 1])}}</span>
+            <span class="time smaller">{{messageTime(contact.messages)}}</span>
 
           </div>
           
@@ -189,7 +189,7 @@
 
             <span 
               v-if="!isMouseHover || isMessageID != i" 
-              class="time smaller">{{messageTime(message)}}</span>
+              class="time smaller">{{messageTimeConv(message)}}</span>
 
             <span 
               v-else-if="isMessageID === i"

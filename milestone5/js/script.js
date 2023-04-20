@@ -25,17 +25,22 @@ createApp({
       const input = document.querySelector('.text-area>input');
       input.focus();
     },
-    messagePreview(message) {
-      if (this.contacts[this.selectedContact].visible) {
-        if (message.length > 39) {
-        const newStr = message.substr(0, 39) + '...';
+    messagePreview(messages) {
+      if (messages.length > 0) {
+        if (messages[messages.length - 1].message.length > 39) {
+        const newStr = messages[messages.length - 1].message.substr(0, 39) + '...';
         return newStr;
         } else {
-        return message;
+        return messages[messages.length - 1].message;
         }
-      } 
+      }  else return 'Non ci sono messaggi. Invia un messaggio...';
     },
-    messageTime(message) {
+    messageTime(messages) {
+      if (messages.length > 0) {
+        return messages[messages.length - 1].date.substr(11, 5);
+      }
+    },
+    messageTimeConv(message) {
       return message.date.substr(11, 5);
     },
     newMessage(contact) {
@@ -61,10 +66,10 @@ createApp({
       }, 2000);
     },
     deleteMsg(index) {
-      if (this.contacts[this.selectedContact].messages.length > 1) {
+      if (this.contacts[this.selectedContact].messages.length === 1) {
+        this.contacts[this.selectedContact].visible = false;
         this.contacts[this.selectedContact].messages.splice(index, 1);
       } else {
-        this.contacts[this.selectedContact].visible = false;
         this.contacts[this.selectedContact].messages.splice(index, 1);
       }
       
