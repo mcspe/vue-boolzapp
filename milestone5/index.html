@@ -193,15 +193,17 @@
 
             <span 
               v-else-if="isMessageID === i"
-              @click="chevronClicked = !chevronClicked" 
+              @click="chevronClicked = !chevronClicked"
               class="chevron smaller">
               <i class="fa-solid fa-chevron-down"></i></span>
             
             <ul 
               v-show="isMessageID === i && chevronClicked"
+              @mouseleave="chevronClicked = !chevronClicked"
               class="dropdown">
               <li>Info Messaggio</li>
-              <li>Cancella Messaggio</li>
+              <li
+                @click="deleteMsg(i)">Cancella Messaggio</li>
             </ul>
 
           </div>
@@ -222,7 +224,8 @@
             class="fa-regular fa-face-smile"></i>
 
           <div 
-            v-if="emojiClicked" 
+            v-show="emojiClicked"
+            @mouseleave="emojiClicked = !emojiClicked" 
             class="emoji-container">
 
             <ul>

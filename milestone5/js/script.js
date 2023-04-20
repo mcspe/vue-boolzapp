@@ -26,12 +26,14 @@ createApp({
       input.focus();
     },
     messagePreview(message) {
-      if (message.length > 39) {
+      if (this.contacts[this.selectedContact].visible) {
+        if (message.length > 39) {
         const newStr = message.substr(0, 39) + '...';
         return newStr;
-      } else {
+        } else {
         return message;
-      }
+        }
+      } 
     },
     messageTime(message) {
       return message.date.substr(11, 5);
@@ -57,6 +59,15 @@ createApp({
         }
         this.contacts[contact].messages.push(newMsgObj);
       }, 2000);
+    },
+    deleteMsg(index) {
+      if (this.contacts[this.selectedContact].messages.length > 1) {
+        this.contacts[this.selectedContact].messages.splice(index, 1);
+      } else {
+        this.contacts[this.selectedContact].visible = false;
+        this.contacts[this.selectedContact].messages.splice(index, 1);
+      }
+      
     },
     displayContacts(){
       this.contacts.forEach(contact => {
